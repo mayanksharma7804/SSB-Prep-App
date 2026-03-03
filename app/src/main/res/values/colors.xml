@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Dark Theme Palette -->
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="glass_white_20">#33FFFFFF</color>
+    <color name="glass_white_10">#1AFFFFFF</color>
+    <color name="glass_border">#4DFFFFFF</color>
+    
+    <color name="accent_blue">#0A84FF</color>
+    <color name="accent_purple">#BF5AF2</color>
+    
+    <color name="text_ios_primary">#FFFFFF</color>
+    <color name="text_ios_secondary">#EBEBF5</color>
+    <color name="text_ios_tertiary">#999999</color>
+
+    <!-- Legacy / Reference Colors (keeping for compatibility during transition) -->
+    <color name="primaryColor">#0A84FF</color>
+    <color name="primaryDark">#000000</color>
+    <color name="primaryBackground">#121212</color>
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#EBEBF5</color>
+    
+    <color name="screening">#FF453A</color>
+    <color name="gto">#32D74B</color>
+    <color name="psychology">#64D2FF</color>
+    <color name="interview">#FF9F0A</color>
+    
+    <color name="ppdt_color">#FF453A</color>
+    <color name="oir_color">#FF9F0A</color>
+</resources>

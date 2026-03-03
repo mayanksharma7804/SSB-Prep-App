@@ -1,0 +1,114 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ssbprep"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+14        android:name="com.ssbprep.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.ssbprep.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:7:5-43:19
+20        android:allowBackup="true"
+20-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.9.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\1dc65b856c8dad8271b93e749d87bd74\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+22        android:debuggable="true"
+23        android:extractNativeLibs="false"
+24        android:icon="@drawable/ic_launcher"
+24-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:9:9-45
+25        android:label="@string/app_name"
+25-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:10:9-41
+26        android:supportsRtl="true"
+26-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:11:9-35
+27        android:testOnly="true"
+28        android:theme="@style/Theme.SSBPrep" >
+28-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:12:9-45
+29        <activity
+29-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:14:9-21:20
+30            android:name="com.ssbprep.activities.LoginActivity"
+30-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:15:13-53
+31            android:exported="true" >
+31-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:16:13-36
+32            <intent-filter>
+32-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:17:13-20:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:18:17-69
+33-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:18:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:19:17-77
+35-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:19:27-74
+36            </intent-filter>
+37        </activity>
+38        <activity
+38-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:23:9-25:39
+39            android:name="com.ssbprep.activities.HomeActivity"
+39-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:24:13-52
+40            android:exported="true" />
+40-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:25:13-36
+41        <activity
+41-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:27:9-29:39
+42            android:name="com.ssbprep.activities.ScreeningActivity"
+42-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:28:13-57
+43            android:exported="true" />
+43-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:29:13-36
+44        <activity
+44-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:31:9-33:39
+45            android:name="com.ssbprep.activities.GroundTasksActivity"
+45-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:32:13-59
+46            android:exported="true" />
+46-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:33:13-36
+47        <activity
+47-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:35:9-37:39
+48            android:name="com.ssbprep.activities.PsychologyActivity"
+48-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:36:13-58
+49            android:exported="true" />
+49-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:37:13-36
+50        <activity
+50-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:39:9-41:39
+51            android:name="com.ssbprep.activities.InterviewActivity"
+51-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:40:13-57
+52            android:exported="true" />
+52-->C:\Users\Mayank Sharma\OneDrive\Desktop\Cpp\SSBPrep\app\src\main\AndroidManifest.xml:41:13-36
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+56            android:authorities="com.ssbprep.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\e5725867a8c03b4c30b42fa8e182e972\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\f997e698f7a7bb9f05279c38b2d2fad7\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\f997e698f7a7bb9f05279c38b2d2fad7\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mayank Sharma\.gradle\caches\9.0.0\transforms\f997e698f7a7bb9f05279c38b2d2fad7\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+64        </provider>
+65    </application>
+66
+67</manifest>
