@@ -12,6 +12,7 @@
     <color name="google_red">#EA4335</color>
     <color name="google_yellow">#FBBC05</color>
     <color name="google_green">#34A853</color>
+<<<<<<< HEAD
     
     <!-- Glass & Depth -->
     <color name="glass_white_10">#1AFFFFFF</color>
@@ -20,6 +21,17 @@
     <color name="neumorph_shadow_dark">#FF000000</color>
     <color name="neumorph_shadow_light">#1AFFFFFF</color>
 
+=======
+    <color name="apple_pink">#FF2D55</color>
+
+    <!-- Glass & Depth -->
+    <color name="glass_white_10">#1AFFFFFF</color>
+    <color name="glass_white_20">#33FFFFFF</color>
+    <color name="glass_border">#26FFFFFF</color>
+    <color name="neumorph_shadow_dark">#FF000000</color>
+    <color name="neumorph_shadow_light">#1AFFFFFF</color>
+
+>>>>>>> 467c327 (Authentication)
     <!-- Slot Colors -->
     <color name="slot_text_color">#FFFFFF</color>
 
@@ -50,4 +62,28 @@
     <color name="oir_color">#FF9F0A</color>
     <color name="accent_blue">#007AFF</color>
     <color name="military_gold">#FBBC05</color>
+<<<<<<< HEAD
+=======
+
+    <!-- Missing Colors Added -->
+    <color name="ciqs_color">#FF9F0A</color>
+    <color name="ct_color">#30D158</color>
+    <color name="fgt_color">#30D158</color>
+    <color name="gd_color">#30D158</color>
+    <color name="gor_color">#30D158</color>
+    <color name="gpe_color">#30D158</color>
+    <color name="hgt_color">#30D158</color>
+    <color name="intro_color">#FF9F0A</color>
+    <color name="io_color">#30D158</color>
+    <color name="lec_color">#30D158</color>
+    <color name="pgt_color">#30D158</color>
+    <color name="questions_color">#FF9F0A</color>
+    <color name="sdt_color">#BF5AF2</color>
+    <color name="srt_color">#BF5AF2</color>
+    <color name="tat_color">#BF5AF2</color>
+    <color name="tips_color">#FF9F0A</color>
+    <color name="wat_color">#BF5AF2</color>
+    <color name="primaryColor">#007AFF</color>
+    <color name="textSecondary">#98989D</color>
+>>>>>>> 467c327 (Authentication)
 </resources>

@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_schedule_interview.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_schedule_interview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_ciqs.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_ciqs.xml"
+    },
+    {
+        "merged": "com.ssbprep.app-mergeDebugResources-45:/layout/activity_signup.xml",
+        "source": "com.ssbprep.app-main-48:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_payment.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_payment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_ground_tasks.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_ground_tasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_interview_booking.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_interview_booking.xml"
+    },
+    {
+        "merged": "com.ssbprep.app-mergeDebugResources-45:/layout/activity_forgot_password.xml",
+        "source": "com.ssbprep.app-main-48:/layout/activity_forgot_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_screening.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_screening.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_interview.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_interview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_coming_soon.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_coming_soon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_task_detail.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_task_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-mergeDebugResources-45:\\layout\\activity_psychology.xml",
+        "source": "C:\\Users\\Mayank Sharma\\.gradle\\daemon\\8.10\\com.ssbprep.app-main-48:\\layout\\activity_psychology.xml"
+    }
+]

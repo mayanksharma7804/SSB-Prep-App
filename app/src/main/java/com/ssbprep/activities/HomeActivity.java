@@ -1,7 +1,6 @@
 package com.ssbprep.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -9,6 +8,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ssbprep.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,11 +23,15 @@ public class HomeActivity extends AppCompatActivity {
     private CardView interviewBlock;
     private ImageButton logoutButton;
     private TextView welcomeText;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
 
         // Initialize views
         screeningBlock = findViewById(R.id.screeningBlock);
@@ -34,9 +42,21 @@ public class HomeActivity extends AppCompatActivity {
         welcomeText = findViewById(R.id.welcomeText);
 
         // Display welcome message
+<<<<<<< HEAD
         SharedPreferences sharedPreferences = getSharedPreferences("SSBPrepPref", MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "Candidate");
         welcomeText.setText("Hello, " + username);
+=======
+        if (currentUser != null) {
+            String name = currentUser.getDisplayName();
+            if (name == null || name.isEmpty()) {
+                name = currentUser.getEmail();
+            }
+            welcomeText.setText("Hello, " + (name != null ? name : "Candidate"));
+        } else {
+            welcomeText.setText("Hello, Candidate");
+        }
+>>>>>>> 467c327 (Authentication)
 
         // Set click listeners for blocks
         screeningBlock.setOnClickListener(v -> handleBlockClick("Screening"));
@@ -72,12 +92,19 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void handleLogout() {
-        SharedPreferences sharedPreferences = getSharedPreferences("SSBPrepPref", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isLoggedIn", false);
-        editor.apply();
-
-        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-        finish();
+        auth.signOut();
+        
+        // Also sign out from Google to allow account selection next time
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
+        googleSignInClient.signOut().addOnCompleteListener(task -> {
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        });
     }
 }

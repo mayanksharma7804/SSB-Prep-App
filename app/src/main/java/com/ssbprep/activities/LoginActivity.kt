@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Configure Google Sign In
+<<<<<<< HEAD
+=======
+        // NOTE: Make sure to replace YOUR_WEB_CLIENT_ID_HERE in strings.xml with your actual Web Client ID from Firebase Console
+>>>>>>> 467c327 (Authentication)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -40,14 +44,51 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.googleSignInButton.setOnClickListener { signInWithGoogle() }
+<<<<<<< HEAD
         binding.loginButton.setOnClickListener { 
             Toast.makeText(this, "Email login is disabled. Please use Google Sign-In.", Toast.LENGTH_SHORT).show()
+=======
+        
+        binding.loginButton.setOnClickListener {
+            val email = binding.usernameField.text.toString().trim()
+            val password = binding.passwordField.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        startHomeActivity()
+                    } else {
+                        Toast.makeText(this, "Login Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
+        binding.signUpText.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
+        binding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+>>>>>>> 467c327 (Authentication)
         }
     }
 
     private fun signInWithGoogle() {
+<<<<<<< HEAD
         val signInIntent = googleSignInClient.signInIntent
         googleSignInLauncher.launch(signInIntent)
+=======
+        // Sign out first to ensure the account picker always appears
+        googleSignInClient.signOut().addOnCompleteListener {
+            val signInIntent = googleSignInClient.signInIntent
+            googleSignInLauncher.launch(signInIntent)
+        }
+>>>>>>> 467c327 (Authentication)
     }
 
     private val googleSignInLauncher = registerForActivityResult(
@@ -59,8 +100,15 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
+<<<<<<< HEAD
                 Toast.makeText(this, "Google Sign-In failed.", Toast.LENGTH_SHORT).show()
             }
+=======
+                Toast.makeText(this, "Google Sign-In failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "Google Sign-In cancelled.", Toast.LENGTH_SHORT).show()
+>>>>>>> 467c327 (Authentication)
         }
     }
 
@@ -71,13 +119,23 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     startHomeActivity()
                 } else {
+<<<<<<< HEAD
                     Toast.makeText(this, "Firebase Authentication Failed.", Toast.LENGTH_SHORT).show()
+=======
+                    Toast.makeText(this, "Firebase Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+>>>>>>> 467c327 (Authentication)
                 }
             }
     }
 
     private fun startHomeActivity() {
+<<<<<<< HEAD
         startActivity(Intent(this, HomeActivity::class.java))
+=======
+        val intent = Intent(this, HomeActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+>>>>>>> 467c327 (Authentication)
         finish()
     }
 }
