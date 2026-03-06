@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">376218276319</string>
-    <string name="google_api_key" translatable="false">AIzaSyC1oY3fIYeFhPaIGklCD64CbEMZOMgcbyA</string>
-    <string name="google_app_id" translatable="false">1:376218276319:android:b26fcb3f23e29cfed1746a</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC1oY3fIYeFhPaIGklCD64CbEMZOMgcbyA</string>
-    <string name="google_storage_bucket" translatable="false">ssb-prep-app.firebasestorage.app</string>
-    <string name="project_id" translatable="false">ssb-prep-app</string>
-</resources>
