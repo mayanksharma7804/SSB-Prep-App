@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "376218276319",
+    "project_id": "ssb-prep-app",
+    "storage_bucket": "ssb-prep-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376218276319:android:b26fcb3f23e29cfed1746a",
+        "android_client_info": {
+          "package_name": "com.ssbprep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1oY3fIYeFhPaIGklCD64CbEMZOMgcbyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

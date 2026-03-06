@@ -40,6 +40,23 @@
             android:name=".activities.InterviewActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".activities.ScheduleInterviewActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.CIQsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.TaskDetailActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

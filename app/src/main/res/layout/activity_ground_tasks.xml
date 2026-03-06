@@ -3,55 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark"
-    android:padding="24dp">
+    android:background="@color/bg_dark"
+    android:fitsSystemWindows="true">
 
-    <!-- iOS style Back Arrow -->
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back_button_desc"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/accent_blue" />
-
-    <!-- Header -->
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
+    <!-- Header Section - Increased Margin to avoid Camera Notch -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/gto"
-        android:textColor="@color/text_ios_primary"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:letterSpacing="-0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backButton" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/glass_background_circle"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            app:tint="@color/text_primary"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Ground Tasks"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/subtitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/gto_subtitle"
-        android:textColor="@color/text_ios_secondary"
-        android:textSize="17sp"
-        android:alpha="0.7"
+        android:paddingHorizontal="24dp"
+        android:text="GTO - Group Testing Office"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText" />
+        app:layout_constraintTop_toBottomOf="@id/header" />
 
-    <!-- Scrollable Content -->
+    <!-- Content Section -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleText">
 
@@ -59,177 +66,177 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="24dp">
+            android:paddingBottom="40dp">
 
-            <!-- GD -->
-            <FrameLayout
+            <!-- 1. GD Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/gdButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/gd_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/gd_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/gd_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_blue" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Group Discussion" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="GD - Social interaction" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- GPE -->
-            <FrameLayout
+            <!-- 2. GPE Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/gpeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/gpe_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/gpe_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/gpe_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_green" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Group Planning" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="GPE - Problem solving" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- PGT -->
-            <FrameLayout
+            <!-- 3. PGT Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/pgtButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/pgt_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/pgt_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/pgt_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_yellow" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Progressive Group Task" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="PGT - Ground obstacles" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- GOR -->
-            <FrameLayout
+            <!-- 4. GOR Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/gorButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/gor_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/gor_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/gor_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_red" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Snake Race" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="GOR - Group Obstacle Race" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- LEC -->
-            <FrameLayout
+            <!-- 5. Lecturrette Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/lecButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/lec_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/lec_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/lec_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/primary_indigo" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lecturrette" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Public speaking test" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- HGT -->
-            <FrameLayout
+            <!-- 6. HGT Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/hgtButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/hgt_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/hgt_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/hgt_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/primary_blue" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Half Group Task" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="HGT - Close assessment" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- IO -->
-            <FrameLayout
+            <!-- 7. IO Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/ioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/io_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/io_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/io_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_yellow" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Individual Obstacles" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="IO - Testing your stamina" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- CT -->
-            <FrameLayout
+            <!-- 8. Command Task Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/ctButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/ct_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/ct_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/ct_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_red" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Command Task" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="CT - Leadership test" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- FGT -->
-            <FrameLayout
+            <!-- 9. FGT Card -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/fgtButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/glass_background"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <View android:layout_width="4dp" android:layout_height="match_parent" android:layout_marginVertical="16dp" android:background="@color/fgt_color" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="@string/fgt_title" android:textColor="@color/text_ios_primary" android:textSize="18sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="sans-serif" android:text="@string/fgt_desc" android:textColor="@color/text_ios_secondary" android:textSize="14sp" android:alpha="0.6" />
+                app:cardBackgroundColor="@color/card_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="20dp">
+                    <View android:layout_width="4dp" android:layout_height="40dp" android:layout_gravity="center_vertical" android:background="@color/google_green" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Final Group Task" android:textColor="@color/text_primary" android:textSize="17sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="FGT - Conclusion" android:textColor="@color/text_secondary" android:textSize="12sp" />
                     </LinearLayout>
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical" android:src="@drawable/baseline_arrow_forward_ios_24" app:tint="@color/text_tertiary" android:contentDescription="Open" />
                 </LinearLayout>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

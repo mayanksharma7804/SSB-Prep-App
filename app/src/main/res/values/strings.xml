@@ -66,4 +66,21 @@
     <string name="questions_desc">Previous year interview questions</string>
     <string name="ciq_title">CIQ\'s</string>
     <string name="ciq_desc">Comprehensive Information Questionnaire</string>
+
+    <string-array name="entry_types">
+        <item>NDA</item>
+        <item>CDSE</item>
+        <item>AFCAT</item>
+        <item>TES</item>
+        <item>TGC</item>
+        <item>NCC Special Entry</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="time_slots">
+        <item>09:00 PM</item>
+        <item>11:00 PM</item>
+    </string-array>
+
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID_HERE</string>
 </resources>

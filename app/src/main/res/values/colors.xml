@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Modern Dark Theme Palette -->
-    <color name="background_dark">#121212</color>
-    <color name="surface_dark">#1E1E1E</color>
-    <color name="glass_white_20">#33FFFFFF</color>
+    <!-- Deep Premium Dark Base -->
+    <color name="bg_dark">#08080A</color>
+    <color name="surface_dark">#15151A</color>
+    <color name="card_dark">#1C1C23</color>
+    
+    <!-- Vibrant Modern Accents (Apple + Google) -->
+    <color name="primary_blue">#007AFF</color> <!-- Apple Blue -->
+    <color name="primary_indigo">#5E5CE6</color>
+    <color name="google_blue">#4285F4</color>
+    <color name="google_red">#EA4335</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_green">#34A853</color>
+    
+    <!-- Glass & Depth -->
     <color name="glass_white_10">#1AFFFFFF</color>
-    <color name="glass_border">#4DFFFFFF</color>
-    
-    <color name="accent_blue">#0A84FF</color>
-    <color name="accent_purple">#BF5AF2</color>
-    
-    <color name="text_ios_primary">#FFFFFF</color>
-    <color name="text_ios_secondary">#EBEBF5</color>
-    <color name="text_ios_tertiary">#999999</color>
+    <color name="glass_white_20">#33FFFFFF</color>
+    <color name="glass_border">#26FFFFFF</color>
+    <color name="neumorph_shadow_dark">#FF000000</color>
+    <color name="neumorph_shadow_light">#1AFFFFFF</color>
 
-    <!-- Legacy / Reference Colors (keeping for compatibility during transition) -->
-    <color name="primaryColor">#0A84FF</color>
-    <color name="primaryDark">#000000</color>
-    <color name="primaryBackground">#121212</color>
-    <color name="textPrimary">#FFFFFF</color>
-    <color name="textSecondary">#EBEBF5</color>
+    <!-- Slot Colors -->
+    <color name="slot_text_color">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#98989D</color>
+    <color name="text_tertiary">#48484A</color>
+
+    <!-- Section Glows -->
+    <color name="screening_accent">#FF3B30</color>
+    <color name="gto_accent">#30D158</color>
+    <color name="psych_accent">#BF5AF2</color>
+    <color name="interview_accent">#FF9F0A</color>
+
+    <!-- Backward Compatibility -->
+    <color name="background_dark">#08080A</color>
+    <color name="surface_military">#15151A</color>
+    <color name="text_ios_primary">#FFFFFF</color>
+    <color name="text_ios_secondary">#98989D</color>
+    <color name="text_ios_tertiary">#48484A</color>
     
-    <color name="screening">#FF453A</color>
-    <color name="gto">#32D74B</color>
-    <color name="psychology">#64D2FF</color>
+    <color name="screening">#FF3B30</color>
+    <color name="gto">#30D158</color>
+    <color name="psychology">#BF5AF2</color>
     <color name="interview">#FF9F0A</color>
     
-    <color name="ppdt_color">#FF453A</color>
+    <color name="ppdt_color">#FF3B30</color>
     <color name="oir_color">#FF9F0A</color>
+    <color name="accent_blue">#007AFF</color>
+    <color name="military_gold">#FBBC05</color>
 </resources>

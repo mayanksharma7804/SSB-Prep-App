@@ -3,20 +3,21 @@ package com.ssbprep.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.ssbprep.R;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private Button screeningBlock;
-    private Button groundTasksBlock;
-    private Button psychologyBlock;
-    private Button interviewBlock;
-    private Button logoutButton;
+    private CardView screeningBlock;
+    private CardView groundTasksBlock;
+    private CardView psychologyBlock;
+    private CardView interviewBlock;
+    private ImageButton logoutButton;
     private TextView welcomeText;
 
     @Override
@@ -34,8 +35,8 @@ public class HomeActivity extends AppCompatActivity {
 
         // Display welcome message
         SharedPreferences sharedPreferences = getSharedPreferences("SSBPrepPref", MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", "User");
-        welcomeText.setText("Welcome, " + username + "!");
+        String username = sharedPreferences.getString("username", "Candidate");
+        welcomeText.setText("Hello, " + username);
 
         // Set click listeners for blocks
         screeningBlock.setOnClickListener(v -> handleBlockClick("Screening"));
