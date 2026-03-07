@@ -12,16 +12,6 @@
     <color name="google_red">#EA4335</color>
     <color name="google_yellow">#FBBC05</color>
     <color name="google_green">#34A853</color>
-<<<<<<< HEAD
-    
-    <!-- Glass & Depth -->
-    <color name="glass_white_10">#1AFFFFFF</color>
-    <color name="glass_white_20">#33FFFFFF</color>
-    <color name="glass_border">#26FFFFFF</color>
-    <color name="neumorph_shadow_dark">#FF000000</color>
-    <color name="neumorph_shadow_light">#1AFFFFFF</color>
-
-=======
     <color name="apple_pink">#FF2D55</color>
 
     <!-- Glass & Depth -->
@@ -31,7 +21,6 @@
     <color name="neumorph_shadow_dark">#FF000000</color>
     <color name="neumorph_shadow_light">#1AFFFFFF</color>
 
->>>>>>> 467c327 (Authentication)
     <!-- Slot Colors -->
     <color name="slot_text_color">#FFFFFF</color>
 
@@ -62,8 +51,6 @@
     <color name="oir_color">#FF9F0A</color>
     <color name="accent_blue">#007AFF</color>
     <color name="military_gold">#FBBC05</color>
-<<<<<<< HEAD
-=======
 
     <!-- Missing Colors Added -->
     <color name="ciqs_color">#FF9F0A</color>
@@ -85,5 +72,4 @@
     <color name="wat_color">#BF5AF2</color>
     <color name="primaryColor">#007AFF</color>
     <color name="textSecondary">#98989D</color>
->>>>>>> 467c327 (Authentication)
 </resources>

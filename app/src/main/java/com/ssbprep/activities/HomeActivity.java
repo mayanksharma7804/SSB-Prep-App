@@ -42,11 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         welcomeText = findViewById(R.id.welcomeText);
 
         // Display welcome message
-<<<<<<< HEAD
-        SharedPreferences sharedPreferences = getSharedPreferences("SSBPrepPref", MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", "Candidate");
-        welcomeText.setText("Hello, " + username);
-=======
         if (currentUser != null) {
             String name = currentUser.getDisplayName();
             if (name == null || name.isEmpty()) {
@@ -56,7 +51,6 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             welcomeText.setText("Hello, Candidate");
         }
->>>>>>> 467c327 (Authentication)
 
         // Set click listeners for blocks
         screeningBlock.setOnClickListener(v -> handleBlockClick("Screening"));

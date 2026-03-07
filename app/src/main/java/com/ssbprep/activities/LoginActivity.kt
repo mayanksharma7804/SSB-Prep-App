@@ -2,6 +2,7 @@ package com.ssbprep.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.ssbprep.R
 import com.ssbprep.databinding.ActivityLoginBinding
@@ -32,11 +37,6 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        // Configure Google Sign In
-<<<<<<< HEAD
-=======
-        // NOTE: Make sure to replace YOUR_WEB_CLIENT_ID_HERE in strings.xml with your actual Web Client ID from Firebase Console
->>>>>>> 467c327 (Authentication)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -44,10 +44,6 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.googleSignInButton.setOnClickListener { signInWithGoogle() }
-<<<<<<< HEAD
-        binding.loginButton.setOnClickListener { 
-            Toast.makeText(this, "Email login is disabled. Please use Google Sign-In.", Toast.LENGTH_SHORT).show()
-=======
         
         binding.loginButton.setOnClickListener {
             val email = binding.usernameField.text.toString().trim()
@@ -58,12 +54,14 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            showLoading(true)
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         startHomeActivity()
                     } else {
-                        Toast.makeText(this, "Login Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        showLoading(false)
+                        handleFirebaseAuthError(task.exception)
                     }
                 }
         }
@@ -74,21 +72,38 @@ class LoginActivity : AppCompatActivity() {
 
         binding.forgotPassword.setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
->>>>>>> 467c327 (Authentication)
         }
     }
 
+    private fun handleFirebaseAuthError(exception: Exception?) {
+        val message = when (exception) {
+            is FirebaseAuthInvalidUserException -> {
+                if (exception.errorCode == "ERROR_USER_NOT_FOUND") {
+                    "No account found with this email. Please Sign Up first."
+                } else {
+                    "This account has been disabled."
+                }
+            }
+            is FirebaseAuthInvalidCredentialsException -> "Incorrect password. Please try again."
+            is FirebaseNetworkException -> "Internet not working. Please check your connection."
+            else -> "Internal Error: App might be under maintenance. Please try later."
+        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.loadingOverlay.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.loginCard.alpha = if (isLoading) 0.5f else 1.0f
+        binding.loginButton.isEnabled = !isLoading
+        binding.googleSignInButton.isEnabled = !isLoading
+    }
+
     private fun signInWithGoogle() {
-<<<<<<< HEAD
-        val signInIntent = googleSignInClient.signInIntent
-        googleSignInLauncher.launch(signInIntent)
-=======
-        // Sign out first to ensure the account picker always appears
+        showLoading(true)
         googleSignInClient.signOut().addOnCompleteListener {
             val signInIntent = googleSignInClient.signInIntent
             googleSignInLauncher.launch(signInIntent)
         }
->>>>>>> 467c327 (Authentication)
     }
 
     private val googleSignInLauncher = registerForActivityResult(
@@ -100,16 +115,25 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-<<<<<<< HEAD
-                Toast.makeText(this, "Google Sign-In failed.", Toast.LENGTH_SHORT).show()
-            }
-=======
-                Toast.makeText(this, "Google Sign-In failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                showLoading(false)
+                handleGoogleSignInError(e)
             }
         } else {
-            Toast.makeText(this, "Google Sign-In cancelled.", Toast.LENGTH_SHORT).show()
->>>>>>> 467c327 (Authentication)
+            showLoading(false)
+            Toast.makeText(this, "Sign-In cancelled.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun handleGoogleSignInError(e: ApiException) {
+        val message = when (e.statusCode) {
+            7 -> "Network Error: Please check your internet connection."
+            10 -> "Developer Error: SHA-1 or Web Client ID mismatch in Firebase console."
+            12500 -> "Sign-in failed. Please update Google Play Services."
+            12501 -> "Sign-in cancelled by user."
+            CommonStatusCodes.NETWORK_ERROR -> "No internet connection."
+            else -> "Google Sign-In failed (Error Code: ${e.statusCode})"
+        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
@@ -119,23 +143,16 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     startHomeActivity()
                 } else {
-<<<<<<< HEAD
-                    Toast.makeText(this, "Firebase Authentication Failed.", Toast.LENGTH_SHORT).show()
-=======
-                    Toast.makeText(this, "Firebase Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
->>>>>>> 467c327 (Authentication)
+                    showLoading(false)
+                    handleFirebaseAuthError(task.exception)
                 }
             }
     }
 
     private fun startHomeActivity() {
-<<<<<<< HEAD
-        startActivity(Intent(this, HomeActivity::class.java))
-=======
         val intent = Intent(this, HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
->>>>>>> 467c327 (Authentication)
         finish()
     }
 }

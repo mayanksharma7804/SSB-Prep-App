@@ -7,13 +7,10 @@
     android:fitsSystemWindows="true">
 
     <View
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/bg_glow_blue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="-50dp"
-        android:layout_marginEnd="-50dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_glow_purple"
+        android:alpha="0.2" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -28,62 +25,73 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/glass_background"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="32dp">
+            android:padding="40dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/baseline_arrow_forward_ios_24"
+                android:rotation="-90"
+                app:tint="@color/primary_blue" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Forgot Password"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Verify your email"
                 android:textColor="@color/text_primary"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/verificationMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Enter your email to receive an OTP"
+                android:layout_marginTop="16dp"
+                android:text="We've sent a verification link to your email. Please click it to continue."
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textAlignment="center" />
 
-            <EditText
-                android:id="@+id/emailField"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/checkStatusButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/edittext_bg_modern"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_tertiary" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sendOtpButton"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:text="Send Link"
+                android:text="I have verified"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                app:backgroundTint="@color/primary_blue"
-                app:cornerRadius="16dp" />
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/google_green" />
 
             <TextView
-                android:id="@+id/backToLogin"
+                android:id="@+id/resendEmailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:text="Back to Login"
+                android:layout_marginTop="24dp"
+                android:text="Didn't receive email? Resend"
                 android:textColor="@color/primary_blue"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9908080A"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary_blue" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

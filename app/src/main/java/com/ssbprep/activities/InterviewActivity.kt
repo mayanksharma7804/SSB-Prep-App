@@ -2,6 +2,7 @@ package com.ssbprep.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -39,24 +40,28 @@ class InterviewActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        // Observe payment status to update UI if needed
+        lifecycleScope.launch {
+            viewModel.isPaid.collectLatest { isPaid ->
+                // You can update a "Premium" badge here if you want
+            }
+        }
     }
 
     private fun checkPaymentAndNavigate() {
-        lifecycleScope.launch {
-            viewModel.isPaid.collectLatest { isPaid ->
-                if (isPaid) {
-                    startActivity(Intent(this@InterviewActivity, InterviewBookingActivity::class.java))
-                } else {
-                    showPayNowPopup()
-                }
-            }
+        // Use the current value of the StateFlow instead of collecting it (which triggers immediately with 'false')
+        if (viewModel.isPaid.value) {
+            startActivity(Intent(this@InterviewActivity, InterviewBookingActivity::class.java))
+        } else {
+            showPayNowPopup()
         }
     }
 
     private fun showPayNowPopup() {
         MaterialAlertDialogBuilder(this)
-            .setTitle("Premium Feature")
-            .setMessage("To schedule a 1-on-1 mock interview with a recommended candidate, a one-time fee of ₹299 is required.")
+            .setTitle("Unlock Mock Interview")
+            .setMessage("Get a 1-on-1 mock interview session with recommended candidates for ₹299.")
             .setNegativeButton("Maybe Later", null)
             .setPositiveButton("Pay Now") { _, _ ->
                 val intent = Intent(this, PaymentActivity::class.java)

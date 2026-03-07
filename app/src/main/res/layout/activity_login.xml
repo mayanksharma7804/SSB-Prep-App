@@ -27,6 +27,7 @@
 
     <!-- Glass Login Card -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -69,7 +70,8 @@
                 android:paddingHorizontal="16dp"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_tertiary" />
+                android:textColorHint="@color/text_tertiary"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/passwordField"
@@ -81,7 +83,8 @@
                 android:inputType="textPassword"
                 android:paddingHorizontal="16dp"
                 android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_tertiary" />
+                android:textColorHint="@color/text_tertiary"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/forgotPassword"
@@ -176,5 +179,22 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <!-- Loading Overlay -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9908080A"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary_blue" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

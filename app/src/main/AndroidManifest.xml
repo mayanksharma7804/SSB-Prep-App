@@ -25,6 +25,10 @@
             android:exported="true" />
 
         <activity
+            android:name=".activities.EmailVerificationActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".activities.ForgotPasswordActivity"
             android:exported="true" />
 
@@ -55,6 +59,14 @@
 
         <activity
             android:name=".activities.PaymentActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.PaymentSuccessActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.InterviewBookingActivity"
             android:exported="true" />
 
         <activity
