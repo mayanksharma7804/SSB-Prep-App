@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.ActionCodeSettings
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.ssbprep.databinding.ActivitySignupBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -48,8 +48,22 @@ class SignUpActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Step 2: Send verification email
-                        sendVerificationEmail()
+                        // Step 2: Save the name to Firebase Profile
+                        val user = auth.currentUser
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(name)
+                            .build()
+
+                        user?.updateProfile(profileUpdates)
+                            ?.addOnCompleteListener { profileTask ->
+                                if (profileTask.isSuccessful) {
+                                    // Step 3: Send verification email
+                                    sendVerificationEmail()
+                                } else {
+                                    showLoading(false)
+                                    Toast.makeText(this, "Failed to save name: ${profileTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                                }
+                            }
                     } else {
                         showLoading(false)
                         Toast.makeText(this, "Sign Up Failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
@@ -69,7 +83,6 @@ class SignUpActivity : AppCompatActivity() {
                 showLoading(false)
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Verification email sent to ${user.email}. Please verify and login.", Toast.LENGTH_LONG).show()
-                    // Navigate to a verification status screen or back to login
                     val intent = Intent(this, EmailVerificationActivity::class.java)
                     intent.putExtra("EMAIL", user.email)
                     startActivity(intent)
