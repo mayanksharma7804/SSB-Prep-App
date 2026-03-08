@@ -86,17 +86,26 @@ class OLQAssessmentActivity : AppCompatActivity() {
         val runnable = object : Runnable {
             override fun run() {
                 if (progress <= 100) {
+                    val progressFloat = progress / 100f
+                    
+                    // 1. Update Fill Width
                     val params = binding.progressBarFill.layoutParams as ConstraintLayout.LayoutParams
-                    params.matchConstraintPercentWidth = progress / 100f
+                    params.matchConstraintPercentWidth = progressFloat
                     binding.progressBarFill.layoutParams = params
                     
+                    // 2. Update Guideline for Plus Sign and Glow
                     val guidelineParams = binding.progressGuideline.layoutParams as ConstraintLayout.LayoutParams
-                    guidelineParams.guidePercent = progress / 100f
+                    guidelineParams.guidePercent = progressFloat
                     binding.progressGuideline.layoutParams = guidelineParams
                     
+                    // 3. Update Glow alpha and Scale (Breathing effect)
+                    binding.progressGlow.alpha = 0.3f + (progressFloat * 0.4f)
+                    binding.progressGlow.scaleX = 0.8f + (progress % 10 * 0.05f)
+                    binding.progressGlow.scaleY = 0.8f + (progress % 10 * 0.05f)
+
                     binding.progressPercentage.text = "$progress%"
                     progress += 1
-                    handler.postDelayed(this, 30)
+                    handler.postDelayed(this, 40)
                 } else {
                     binding.loadingOverlay.visibility = View.GONE
                     showAnalysisResult()

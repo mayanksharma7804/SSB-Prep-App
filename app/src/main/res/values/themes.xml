@@ -16,8 +16,18 @@
         <item name="android:textColorPrimary">@color/text_primary</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
 
+        <!-- AlertDialog Style -->
+        <item name="alertDialogTheme">@style/CustomAlertDialog</item>
+
         <!-- Fix for yellowish autofill background (API 26+) -->
         <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/glass_background</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="colorAccent">@color/primary_blue</item>
     </style>
 
     <style name="CustomCalendar" parent="Theme.AppCompat">
