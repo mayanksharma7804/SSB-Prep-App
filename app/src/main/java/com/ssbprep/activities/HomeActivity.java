@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private CardView screeningBlock, groundTasksBlock, psychologyBlock, interviewBlock;
+    private CardView screeningBlock, groundTasksBlock, psychologyBlock, interviewBlock, knowledgeBlock, olqBlock;
     private ImageButton logoutButton;
     private TextView welcomeText;
     private CircleImageView profileAvatar;
@@ -50,6 +50,8 @@ public class HomeActivity extends AppCompatActivity {
         groundTasksBlock = findViewById(R.id.groundTasksBlock);
         psychologyBlock = findViewById(R.id.psychologyBlock);
         interviewBlock = findViewById(R.id.interviewBlock);
+        knowledgeBlock = findViewById(R.id.knowledgeBlock);
+        olqBlock = findViewById(R.id.olqBlock);
         logoutButton = findViewById(R.id.logoutButton);
         welcomeText = findViewById(R.id.welcomeText);
         profileAvatar = findViewById(R.id.profileAvatar);
@@ -64,8 +66,10 @@ public class HomeActivity extends AppCompatActivity {
         groundTasksBlock.setOnClickListener(v -> handleBlockClick("Ground Tasks"));
         psychologyBlock.setOnClickListener(v -> handleBlockClick("Psychology"));
         interviewBlock.setOnClickListener(v -> handleBlockClick("Interview"));
+        knowledgeBlock.setOnClickListener(v -> handleBlockClick("Knowledge"));
+        olqBlock.setOnClickListener(v -> handleBlockClick("OLQ"));
 
-        logoutButton.setOnClickListener(v -> handleLogout());
+        logoutButton.setOnClickListener(v -> showLogoutConfirmation());
     }
 
     @Override
@@ -77,7 +81,6 @@ public class HomeActivity extends AppCompatActivity {
     private void refreshUserInfo() {
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
-            // Refresh the user to get latest profile updates
             currentUser.reload().addOnCompleteListener(task -> {
                 FirebaseUser user = auth.getCurrentUser();
                 if (user != null) {
@@ -101,7 +104,6 @@ public class HomeActivity extends AppCompatActivity {
                 .circleCrop()
                 .into(profileAvatar);
 
-        // Update Drawer Header as well
         View headerView = navigationView.getHeaderView(0);
         CircleImageView headerImage = headerView.findViewById(R.id.navHeaderImage);
         TextView headerName = headerView.findViewById(R.id.navHeaderName);
@@ -124,10 +126,8 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.nav_personal_info) {
                 startActivity(new Intent(this, PersonalInfoActivity.class));
             } else if (id == R.id.nav_subscription) {
-                // TODO: Open Subscription screen
                 Toast.makeText(this, "Subscription Details Coming Soon", Toast.LENGTH_SHORT).show();
             } else if (id == R.id.nav_settings) {
-                // TODO: Open App Settings screen
                 Toast.makeText(this, "App Settings Coming Soon", Toast.LENGTH_SHORT).show();
             } else if (id == R.id.nav_support) {
                 Toast.makeText(this, "Support: mayankews.chanakya1@gmail.com", Toast.LENGTH_LONG).show();
@@ -137,6 +137,15 @@ public class HomeActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
+    }
+
+    private void showLogoutConfirmation() {
+        new AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
+            .setPositiveButton("Logout", (dialog, which) -> handleLogout())
+            .setNegativeButton("Cancel", null)
+            .show();
     }
 
     private void showDeleteConfirmation() {
@@ -164,6 +173,8 @@ public class HomeActivity extends AppCompatActivity {
             case "Ground Tasks": intent = new Intent(this, GroundTasksActivity.class); break;
             case "Psychology": intent = new Intent(this, PsychologyActivity.class); break;
             case "Interview": intent = new Intent(this, InterviewActivity.class); break;
+            case "Knowledge": intent = new Intent(this, ForcesKnowledgeActivity.class); break;
+            case "OLQ": intent = new Intent(this, OLQActivity.class); break;
         }
         if (intent != null) startActivity(intent);
     }

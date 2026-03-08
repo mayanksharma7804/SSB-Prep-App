@@ -65,6 +65,22 @@
             android:exported="true" />
 
         <activity
+            android:name=".activities.ForcesKnowledgeActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ServiceDetailActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.OLQActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.OLQAssessmentActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".activities.ScheduleInterviewActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
