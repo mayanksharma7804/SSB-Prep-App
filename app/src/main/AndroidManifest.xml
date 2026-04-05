@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ssbprep">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application
+        android:name=".SSBPrepApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_app_logo"
+        android:roundIcon="@drawable/ic_app_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SSBPrep">
+
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.EmailVerificationActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ProfileSettingsActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.PersonalInfoActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.HomeActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ProcedureActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ScreeningActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.GroundTasksActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.PsychologyActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.InterviewActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ForcesKnowledgeActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ServiceDetailActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.OLQActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.OLQAssessmentActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ScheduleInterviewActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.PaymentSuccessActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.InterviewBookingActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.CIQsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.TaskDetailActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.ComingSoonActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.LecturetteTopicsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.InterviewTipsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.TATListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.TATPreviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.TATSimulatorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.WATListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.WATPreviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.WATSimulatorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.SSBCountdownDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.NewsActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".widgets.SSBCountdownWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ssb_countdown_widget_info" />
+        </receiver>
+
+    </application>
+
+</manifest>

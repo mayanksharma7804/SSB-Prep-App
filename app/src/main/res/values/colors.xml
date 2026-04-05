@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Light Theme Base -->
+    <color name="bg_dark">#F2F2F7</color> <!-- Light Gray Background -->
+    <color name="surface_dark">#FFFFFF</color>
+    <color name="card_dark">#FFFFFF</color>
+    
+    <!-- Adaptive Colors -->
+    <color name="loading_overlay">#99FFFFFF</color>
+    <color name="army_bg">#E8F5E9</color>
+    <color name="iaf_bg">#E3F2FD</color>
+    <color name="navy_bg">#E0F2F1</color>
+    <color name="army_text_sub">#4CAF50</color>
+    <color name="iaf_text_sub">#2196F3</color>
+    <color name="navy_text_sub">#009688</color>
+
+    <!-- Vibrant Modern Accents (Apple + Google) -->
+    <color name="primary_blue">#007AFF</color> <!-- Apple Blue -->
+    <color name="primary_indigo">#5856D6</color>
+    <color name="google_blue">#4285F4</color>
+    <color name="google_red">#EA4335</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_green">#34A853</color>
+    <color name="google_purple">#9C27B0</color>
+    <color name="apple_pink">#FF2D55</color>
+
+    <!-- Glass & Depth (Light) -->
+    <color name="glass_white_10">#E6FFFFFF</color>
+    <color name="glass_white_20">#CCFFFFFF</color>
+    <color name="glass_border">#1A000000</color>
+    <color name="neumorph_shadow_dark">#1A000000</color>
+    <color name="neumorph_shadow_light">#FFFFFF</color>
+
+    <!-- Slot Colors -->
+    <color name="slot_text_color">#000000</color>
+
+    <!-- Text (Light) -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#3C3C43</color>
+    <color name="text_tertiary">#8E8E93</color>
+
+    <!-- Section Glows -->
+    <color name="screening_accent">#FF3B30</color>
+    <color name="gto_accent">#34C759</color>
+    <color name="psych_accent">#AF52DE</color>
+    <color name="interview_accent">#FF9500</color>
+
+    <!-- Backward Compatibility -->
+    <color name="background_dark">#F2F2F7</color>
+    <color name="surface_military">#FFFFFF</color>
+    <color name="text_ios_primary">#000000</color>
+    <color name="text_ios_secondary">#3C3C43</color>
+    <color name="text_ios_tertiary">#8E8E93</color>
+    
+    <color name="screening">#FF3B30</color>
+    <color name="gto">#34C759</color>
+    <color name="psychology">#AF52DE</color>
+    <color name="interview">#FF9500</color>
+    
+    <color name="ppdt_color">#FF3B30</color>
+    <color name="oir_color">#FF9500</color>
+    <color name="accent_blue">#007AFF</color>
+    <color name="military_gold">#FFCC00</color>
+
+    <!-- Task Specific Colors -->
+    <color name="ciqs_color">#FF9500</color>
+    <color name="ct_color">#34C759</color>
+    <color name="fgt_color">#34C759</color>
+    <color name="gd_color">#34C759</color>
+    <color name="gor_color">#34C759</color>
+    <color name="gpe_color">#34C759</color>
+    <color name="hgt_color">#34C759</color>
+    <color name="intro_color">#FF9500</color>
+    <color name="io_color">#34C759</color>
+    <color name="lec_color">#34C759</color>
+    <color name="pgt_color">#34C759</color>
+    <color name="questions_color">#FF9500</color>
+    <color name="sdt_color">#AF52DE</color>
+    <color name="srt_color">#AF52DE</color>
+    <color name="tat_color">#AF52DE</color>
+    <color name="tips_color">#FF9500</color>
+    <color name="wat_color">#AF52DE</color>
+    <color name="primaryColor">#007AFF</color>
+    <color name="textSecondary">#3C3C43</color>
+</resources>

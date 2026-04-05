@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark">
+
+        <!-- Glowing Background Elements -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:background="@drawable/bg_glow_purple" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Header Section -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp">
+
+                    <LinearLayout
+                        android:id="@+id/welcomeContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/actionContainer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/welcomeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Welcome Back,"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/userNameText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-black"
+                            android:maxLines="1"
+                            android:text="User"
+                            android:textColor="@color/text_primary"
+                            android:textSize="28sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/actionContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/themeToggleButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_moon"
+                            app:tint="@color/text_primary" />
+
+                        <ImageButton
+                            android:id="@+id/logoutButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_logout"
+                            app:tint="@color/google_red" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileAvatar"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:padding="2dp"
+                            android:src="@drawable/default_avatar"
+                            app:civ_border_color="@color/primary_blue"
+                            app:civ_border_width="2dp" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Countdown Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/countdownBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/card_dark"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="20dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/ssbNameLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NDA SSB"
+                                android:textColor="@color/google_blue"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.1" />
+                            <TextView
+                                android:id="@+id/daysToGoText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="15 Days to go"
+                                android:textColor="@color/text_primary"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/baseline_menu_book_24"
+                            app:tint="@color/google_blue"
+                            android:alpha="0.8" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addCountdownBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/card_dark"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="20dp"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/baseline_arrow_forward_ios_24"
+                            app:tint="@color/primary_blue" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Add Important Date"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Reminder Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/reminderBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/google_blue"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Upcoming Interview"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/reminderDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jan 25 | 10:00 AM"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Quick Action Cards (2x2 Grid) -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2">
+
+                    <!-- Psychology Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/psychologyBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/baseline_psychology_24"
+                                app:tint="@color/google_blue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:fontFamily="sans-serif-bold"
+                                android:text="Psychology"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Interview Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/interviewBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/baseline_record_voice_over_24"
+                                app:tint="@color/google_red" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:fontFamily="sans-serif-bold"
+                                android:text="Interview"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- GTO Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/groundTasksBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/baseline_groups_24"
+                                app:tint="@color/google_green" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:fontFamily="sans-serif-bold"
+                                android:text="GTO Tasks"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Knowledge Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/knowledgeBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/baseline_menu_book_24"
+                                app:tint="@color/google_yellow" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:fontFamily="sans-serif-bold"
+                                android:text="Knowledge"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+                <!-- News Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Latest News"
+                            android:textColor="@color/text_primary"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/viewAllNews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="See more"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:padding="8dp" />
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/newsRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+                </LinearLayout>
+
+                <!-- Featured Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Explore More"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp" />
+
+                    <!-- Screening Block -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/screeningBlock"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="20dp">
+
+                            <View
+                                android:id="@+id/screeningIndicator"
+                                android:layout_width="4dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:background="@color/google_red" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="16dp"
+                                android:layout_toEndOf="@id/screeningIndicator"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-bold"
+                                    android:text="Screening (Stage I)"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OIR &amp; PPDT Preparation"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/baseline_arrow_forward_ios_24"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- SSB Procedure Block -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/procedureBlock"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="20dp">
+
+                            <View
+                                android:id="@+id/procedureIndicator"
+                                android:layout_width="4dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:background="@color/google_blue" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="16dp"
+                                android:layout_toEndOf="@id/procedureIndicator"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-bold"
+                                    android:text="SSB Procedure"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="5 Days overview of SSB"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/baseline_arrow_forward_ios_24"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- OLQ Assessment Block -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/olqBlock"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@color/card_dark"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="20dp">
+
+                            <View
+                                android:id="@+id/olqIndicator"
+                                android:layout_width="4dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:background="@color/google_green" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="16dp"
+                                android:layout_toEndOf="@id/olqIndicator"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-bold"
+                                    android:text="OLQ Assessment"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Check your officer like qualities"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/baseline_arrow_forward_ios_24"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Bottom Spacer -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/bg_dark"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="@color/text_primary"
+        app:itemIconTint="@color/primary_blue" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

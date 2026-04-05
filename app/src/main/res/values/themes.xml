@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SSBPrep" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+
+        <!-- Dialog Themes -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/card_dark</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorPrimary">@color/primary_blue</item>
+    </style>
+
+    <!-- Calendar Style -->
+    <style name="CustomCalendar" parent="android:Widget.CalendarView">
+        <item name="android:focusedMonthDateColor">@color/primary_blue</item>
+        <item name="android:unfocusedMonthDateColor">@color/text_tertiary</item>
+        <item name="android:selectedWeekBackgroundColor">@color/card_dark</item>
+        <item name="android:weekSeparatorLineColor">@android:color/transparent</item>
+    </style>
+</resources>

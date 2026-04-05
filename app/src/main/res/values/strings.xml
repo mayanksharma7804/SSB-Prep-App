@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SSB Prep</string>
+    <string name="login_subtitle">Prepare for SSB with ease</string>
+    <string name="username_hint">Enter your username</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_button">Login</string>
+    <string name="logout_button">Logout</string>
+    <string name="home_subtitle">Select a section to begin preparation</string>
+    <string name="screening">Screening</string>
+    <string name="gto">Ground Tasks</string>
+    <string name="psychology">Psychology</string>
+    <string name="interview">Interview</string>
+
+    <!-- Screening Section -->
+    <string name="screening_subtitle">Stage 1: The First Impression</string>
+    <string name="ppdt_gd_title">PPDT &amp; GD</string>
+    <string name="ppdt_gd_desc">Picture Perception &amp; Discussion</string>
+    <string name="oir_title">OIR</string>
+    <string name="oir_desc">Officer Intelligence Rating</string>
+
+    <string name="back_button_desc">Back</string>
+
+    <!-- Home Page -->
+    <string name="home_welcome">Welcome, User!</string>
+
+    <!-- Ground Tasks Section -->
+    <string name="gto_subtitle">Group Testing Officer Tasks</string>
+    <string name="gd_title">Group Discussion</string>
+    <string name="gd_desc">GD on social and current issues</string>
+    <string name="gpe_title">Group Planning Exercise</string>
+    <string name="gpe_desc">Military planning exercise</string>
+    <string name="pgt_title">Progressive Group Task</string>
+    <string name="pgt_desc">Four stage group obstacle task</string>
+    <string name="gor_title">Group Obstacle Race</string>
+    <string name="gor_desc">Snake race with group competition</string>
+    <string name="lec_title">Lecturette</string>
+    <string name="lec_desc">Brief talk on a given topic</string>
+    <string name="hgt_title">Half Group Task</string>
+    <string name="hgt_desc">Smaller group testing task</string>
+    <string name="io_title">Individual Obstacles</string>
+    <string name="io_desc">10 obstacles to test stamina</string>
+    <string name="ct_title">Command Task</string>
+    <string name="ct_desc">Leadership and problem solving</string>
+    <string name="fgt_title">Final Group Task</string>
+    <string name="fgt_desc">Last group coordination task</string>
+
+    <!-- Psychology Section -->
+    <string name="psychology_subtitle">Testing your subconscious mind</string>
+    <string name="tat_title">TAT</string>
+    <string name="tat_desc">Thematic Apperception Test</string>
+    <string name="wat_title">WAT</string>
+    <string name="wat_desc">Word Association Test</string>
+    <string name="srt_title">SRT</string>
+    <string name="srt_desc">Situation Reaction Test</string>
+    <string name="sdt_title">SDT</string>
+    <string name="sdt_desc">Self Description Test</string>
+
+    <!-- Interview Section -->
+    <string name="interview_subtitle">Face-to-face interaction</string>
+    <string name="intro_title">Introduction</string>
+    <string name="intro_desc">Common starting questions</string>
+    <string name="tips_title">Tips and Techniques</string>
+    <string name="tips_desc">How to approach the interview</string>
+    <string name="questions_title">Questions Asked</string>
+    <string name="questions_desc">Previous year interview questions</string>
+    <string name="ciq_title">CIQ\'s</string>
+    <string name="ciq_desc">Comprehensive Information Questionnaire</string>
+
+    <!-- Settings Section -->
+    <string name="security">Security</string>
+    <string name="biometric_auth">Biometric Authentication</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="about">About</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="version">Version</string>
+    <string name="app_version">1.0.0</string>
+
+    <string-array name="entry_types">
+        <item>NDA</item>
+        <item>CDSE</item>
+        <item>AFCAT</item>
+        <item>TES</item>
+        <item>TGC</item>
+        <item>NCC Special Entry</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="time_slots">
+        <item>09:00 PM</item>
+        <item>11:00 PM</item>
+    </string-array>
+
+    <string name="default_web_client_id">376218276319-2h2tg04ru07j7jebhjotunac3npath3h.apps.googleusercontent.com</string>
+</resources>
